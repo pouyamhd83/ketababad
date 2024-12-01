@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header, footer {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+/* استایل‌دهی به ناوبری */
+nav {
+    background-color: #333; /* رنگ پس‌زمینه منو */
+    padding: 10px; /* حاشیه داخلی منو */
+}
+
+nav ul {
+    list-style-type: none; /* حذف نشانه‌گذاری لیست */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* مرکز چین کردن متن */
+}
+
+nav ul li {
+    display: inline; /* نمایش لینک‌ها به صورت افقی */
+    margin: 0 15px; /* فاصله بین لینک‌ها */
+}
+
+nav ul li a {
+    color: white; /* رنگ سفید برای لینک‌ها */
+    text-decoration: none; /* حذف زیرخط لینک‌ها */
+    font-weight: bold; /* پررنگ کردن متن لینک‌ها */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* افزودن زیرخط در حالت هاور */
+}
