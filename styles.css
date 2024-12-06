@@ -55,8 +55,8 @@ main section {
 }
 
 .book-gallery img {
-    max-width: 100%;
-    height: auto;
+    max-width: 200px; /* تنظیم حداکثر عرض برای تصاویر */
+    height: auto; /* تنظیم ارتفاع به صورت خودکار نسبت به عرض */
     border: 2px solid #333;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
