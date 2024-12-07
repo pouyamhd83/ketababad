@@ -12,7 +12,7 @@
         <h1>به کتاب آباد خوش آمدید</h1>
         <nav>
             <ul>
-                <li><a href="index.html">صفحه اصلی</a></li>
+                <li><a href="index.html">صفحه اصلی 🏠</a></li>
                 <li><a href="about.html">درباره ما</a></li>
                 <li><a href="contact.html">تماس با ما</a></li>
                 <li><a href="#">کتاب‌ها</a></li>
@@ -21,9 +21,9 @@
     </header>
 
     <main>
-
+        <section>
             <h2>صفحه اصلی</h2>
-
+        </section>
         
         <section>
             <h2>کتاب‌های دانشگاهی</h2>
@@ -55,28 +55,19 @@
     </div>
 
     <script>
-        // جاوااسکریپت برای مدیریت بزرگنمایی تصاویر
-        var modal = document.getElementById("myModal");
-        var modalImg = document.getElementById("img01");
-        var images = document.querySelectorAll(".book-gallery img");
-        var closeBtn = document.getElementsByClassName("close")[0];
+        // جاوااسکریپت برای نمایش تاریخ و ساعت
+        function updateDateTime() {
+            var now = new Date();
+            var date = now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
+            var time = now.toLocaleTimeString('fa-IR');
 
-        images.forEach(function(img) {
-            img.onclick = function(){
-                modal.style.display = "block";
-                modalImg.src = this.src;
-            }
-        });
-
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
+            document.getElementById('date').textContent = 'تاریخ: ' + date;
+            document.getElementById('time').textContent = 'ساعت: ' + time;
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+        // به‌روزرسانی تاریخ و ساعت هر ثانیه
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
     </script>
 </body>
 </html>

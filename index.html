@@ -12,7 +12,7 @@
         <h1>به کتاب آباد خوش آمدید</h1>
         <nav>
             <ul>
-                <li><a href="index.html">صفحه اصلی</a></li>
+                <li><a href="index.html">صفحه اصلی 🏠</a></li>
                 <li><a href="about.html">درباره ما</a></li>
                 <li><a href="contact.html">تماس با ما</a></li>
                 <li><a href="#">کتاب‌ها</a></li>
@@ -23,7 +23,7 @@
     <main>
         <section>
             <h2>صفحه اصلی</h2>
-
+        </section>
         
         <section>
             <h2>کتاب‌های دانشگاهی</h2>
@@ -72,11 +72,9 @@
             modal.style.display = "none";
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+        // به‌روزرسانی تاریخ و ساعت هر ثانیه
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
     </script>
 </body>
 </html>
