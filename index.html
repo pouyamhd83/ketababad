@@ -25,8 +25,9 @@
         .modal-content {
             margin: auto;
             display: block;
-            width: 80%;
-            max-width: 700px; /* حداکثر عرض */
+            width: 50%; /* عرض 50% از صفحه */
+            max-width: 500px; /* حداکثر عرض 500px */
+            height: auto; /* ارتفاع متناسب با عرض */
         }
 
         .close {
@@ -126,10 +127,11 @@
         closeBtn.onclick = function() {
             modal.style.display = "none";
         }
-
-        // به‌روزرسانی تاریخ و ساعت هر ثانیه
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
