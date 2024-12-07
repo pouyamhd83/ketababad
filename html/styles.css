@@ -68,3 +68,12 @@ nav ul li a:hover {
     color: #666;
     text-align: justify;
 }
+
+/* استایل‌دهی به تصاویر کتاب‌ها */
+.book-gallery img {
+    width: 200px; /* تنظیم عرض */
+    height: auto; /* ارتفاع به طور خودکار متناسب با عرض تنظیم می‌شود */
+    margin: 10px; /* فاصله بین تصاویر */
+    border-radius: 8px; /* گرد کردن گوشه‌های تصاویر */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه برای تصاویر */
+}
