@@ -102,19 +102,14 @@
     </div>
 
     <script>
-        // جاوااسکریپت برای نمایش تاریخ و ساعت
-        function updateDateTime() {
+        // جاوااسکریپت برای نمایش تاریخ
+        function displayDate() {
             var now = new Date();
-            var date = now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
-            var time = now.toLocaleTimeString('fa-IR');
-
-            document.getElementById('date').textContent = 'تاریخ: ' + date;
-            document.getElementById('time').textContent = 'ساعت: ' + time;
+            var options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            var currentDate = now.toLocaleDateString('fa-IR', options);
+            document.getElementById('current-date').textContent = currentDate;
         }
-
-        // به‌روزرسانی تاریخ و ساعت هر ثانیه
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
+        displayDate();
 
         // جاوااسکریپت برای مدیریت بزرگنمایی تصاویر
         var modal = document.getElementById("myModal");
