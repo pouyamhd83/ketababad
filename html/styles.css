@@ -20,6 +20,7 @@ main {
 h1 {
     color: #333;
 }
+
 /* استایل‌دهی به ناوبری */
 nav {
     background-color: #333; /* رنگ پس‌زمینه منو */
@@ -47,6 +48,7 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline; /* افزودن زیرخط در حالت هاور */
 }
+
 /* استایل‌دهی به بخش "درباره ما" */
 #about {
     padding: 2rem;

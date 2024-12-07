@@ -1,106 +1,81 @@
-/* استایل‌های پایه‌ای */
-* {
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f0f0f0;
 }
 
-body {
-    font-family: 'Vazir', sans-serif;
-    line-height: 1.6;
+header, footer {
     background-color: #f4f4f4;
-    color: #333;
-    padding-bottom: 50px; /* برای جلوگیری از پوشش فوتر توسط محتوای صفحه */
-}
-
-/* استایل‌های هدر */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
+    padding: 20px;
     text-align: center;
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
-
-header nav ul li {
-    margin: 0 1rem;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* استایل‌های محتوای اصلی */
 main {
-    padding: 1rem;
+    padding: 20px;
+    text-align: center;
 }
 
-main section {
-    margin-bottom: 2rem;
+h1 {
+    color: #333;
 }
 
-.book-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
+/* استایل‌دهی به ناوبری */
+nav {
+    background-color: #333; /* رنگ پس‌زمینه منو */
+    padding: 10px; /* حاشیه داخلی منو */
 }
 
-.book-gallery img {
-    max-width: 200px; /* تنظیم حداکثر عرض برای تصاویر */
-    width: 100%; /* اطمینان از سازگاری با صفحه‌نمایش‌های کوچکتر */
-    height: auto; /* تنظیم ارتفاع به صورت خودکار نسبت به عرض */
-    border: 2px solid #333;
+nav ul {
+    list-style-type: none; /* حذف نشانه‌گذاری لیست */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* مرکز چین کردن متن */
+}
+
+nav ul li {
+    display: inline; /* نمایش لینک‌ها به صورت افقی */
+    margin: 0 15px; /* فاصله بین لینک‌ها */
+}
+
+nav ul li a {
+    color: white; /* رنگ سفید برای لینک‌ها */
+    text-decoration: none; /* حذف زیرخط لینک‌ها */
+    font-weight: bold; /* پررنگ کردن متن لینک‌ها */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* افزودن زیرخط در حالت هاور */
+}
+
+/* استایل‌دهی به بخش "درباره ما" */
+#about {
+    padding: 2rem;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer; /* تغییر نشانگر موس به دست برای کلیک کردن */
+    margin: 2rem 0;
 }
 
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.8);
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 90%;
-    max-width: 700px;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    color: #fff;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* استایل برای فوتر */
-footer {
+#about h2 {
     text-align: center;
-    padding: 1rem 0;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #666;
+    text-align: justify;
+}
+
+/* استایل‌دهی به تصاویر کتاب‌ها */
+.book-gallery img {
+    width: 200px; /* تنظیم عرض */
+    height: auto; /* ارتفاع به طور خودکار متناسب با عرض تنظیم می‌شود */
+    margin: 10px; /* فاصله بین تصاویر */
+    border-radius: 8px; /* گرد کردن گوشه‌های تصاویر */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه برای تصاویر */
 }
