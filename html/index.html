@@ -5,48 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کتاب آباد - کتابفروشی آنلاین</title>
     <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- لینک به فایل CSS برای تنظیم اندازه تصاویر -->
-    <style>
-        /* CSS برای بزرگنمایی تصاویر با اندازه مناسب */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1; 
-            padding-top: 60px; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgb(0,0,0); 
-            background-color: rgba(0,0,0,0.9); 
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%; /* عرض 80% از صفحه */
-            max-width: 600px; /* حداکثر عرض 600px */
-            height: auto; /* ارتفاع متناسب با عرض */
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- لینک به فایل CSS برای تنظیم استایل -->
 </head>
 <body>
     <header>
@@ -56,9 +15,14 @@
                 <li><a href="index.html">صفحه اصلی 🏠</a></li>
                 <li><a href="about.html">درباره ما</a></li>
                 <li><a href="contact.html">تماس با ما</a></li>
-
+                <li><a href="cart.html">سبد خرید</a></li>
             </ul>
         </nav>
+        <!-- افزودن قسمت جستجو -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="جستجو کتاب...">
+            <button onclick="searchBooks()">جستجو</button>
+        </div>
     </header>
 
     <main>
@@ -69,12 +33,30 @@
         <section>
             <h2>کتاب‌های دانشگاهی</h2>
             <div class="book-gallery">
-                <img src="images/farsi.jpg" alt="کتاب فارسی">
-                <img src="images/fizik_holiday.jpg" alt="کتاب فیزیک هالیدی">
-                <img src="images/fizik.jpg" alt="کتاب فیزیک">
-                <img src="images/riazi_pish.jpg" alt="کتاب ریاضی پیش دانشگاهی">
-                <img src="images/riazi_yek.jpg" alt="کتاب ریاضی یک">
-                <img src="images/tarikh_tahlili.jpg" alt="کتاب تاریخ تحلیلی">
+                <div class="book-item">
+                    <img src="images/farsi.jpg" alt="کتاب فارسی">
+                    <p>نام کتاب: زبان و ادبیات فارسی<br>نویسنده: قربانعلی ابراهیمی، احمدرضا یلمه‌ها<br>قیمت: 1،500،000 ریال</p>
+                </div>
+                <div class="book-item">
+                    <img src="images/fizik_holiday.jpg" alt="کتاب فیزیک هالیدی">
+                    <p>نام کتاب: حل المسائل مبانی فیزیک (فیزیک هالیدی)<br>نویسنده: دیوید هالیدی، رابرت رزنیک، جرل واکر<br>قیمت: 2،000،000 ریال</p>
+                </div>
+                <div class="book-item">
+                    <img src="images/fizik.jpg" alt="کتاب فیزیک">
+                    <p>نام کتاب: مبانی فیزیک و گرما<br>نویسنده: سعید بهنام فر<br>قیمت: 2،300،000 ریال</p>
+                </div>
+                <div class="book-item">
+                    <img src="images/riazi_pish.jpg" alt="کتاب ریاضی پیش دانشگاهی">
+                    <p>نام کتاب: ریاضیات پیش دانشگاهی<br>نویسنده: علی قمی، ژینوس نظری، معصومه ولی<br>قیمت: 1،500،000 ریال</p>
+                </div>
+                <div class="book-item">
+                    <img src="images/riazi_yek.jpg" alt="کتاب ریاضی یک">
+                    <p>نام کتاب: ریاضی عمومی یک<br>نویسنده: نفیسه صالحی، محمد نیلی، محمدرسول ولایتی<br>قیمت: 1،600،000 ریال</p>
+                </div>
+                <div class="book-item">
+                    <img src="images/tarikh_tahlili.jpg" alt="کتاب تاریخ تحلیلی">
+                    <p>نام کتاب: تاریخ تحلیلی صدر اسلام<br>نویسنده: دکتر محمد نصیری<br>قیمت: 900،000 ریال</p>
+                </div>
             </div>
         </section>
         
@@ -91,6 +73,10 @@
     </main>
     
     <footer>
+        <div class="footer-links">
+            <a href="support.html">پشتیبانی</a>
+            <a href="cart.html">سبد خرید</a>
+        </div>
         <p>کلیه حقوق محفوظ است &copy; 2024 کتاب آباد</p>
         <p>تابع قوانین جمهوری اسلامی ایران</p>
     </footer>
@@ -101,6 +87,7 @@
         <img class="modal-content" id="img01">
     </div>
 
+    <script src="scripts.js"></script>
     <script>
         // جاوااسکریپت برای نمایش تاریخ
         function displayDate() {
@@ -133,6 +120,20 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+
+        // جاوااسکریپت برای جستجوی کتاب
+        function searchBooks() {
+            var input = document.getElementById('searchInput').value.toLowerCase();
+            var books = document.querySelectorAll('.book-item');
+            books.forEach(function(book) {
+                var bookText = book.textContent.toLowerCase();
+                if (bookText.includes(input)) {
+                    book.style.display = '';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>

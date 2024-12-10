@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Vazir', Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -49,6 +49,57 @@ nav ul li a:hover {
     text-decoration: underline; /* افزودن زیرخط در حالت هاور */
 }
 
+/* استایل‌دهی به بخش جستجو */
+.search-bar {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #555;
+}
+
+/* استایل‌دهی به بخش کتاب‌ها */
+.book-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book-item {
+    margin: 20px;
+    text-align: left;
+}
+
+.book-item img {
+    width: 200px; /* تنظیم عرض */
+    height: auto; /* ارتفاع به طور خودکار متناسب با عرض تنظیم می‌شود */
+    margin: 10px; /* فاصله بین تصاویر */
+    border-radius: 8px; /* گرد کردن گوشه‌های تصاویر */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه برای تصاویر */
+}
+
+.book-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
 /* استایل‌دهی به بخش "درباره ما" */
 #about {
     padding: 2rem;
@@ -71,11 +122,81 @@ nav ul li a:hover {
     text-align: justify;
 }
 
-/* استایل‌دهی به تصاویر کتاب‌ها */
-.book-gallery img {
-    width: 200px; /* تنظیم عرض */
-    height: auto; /* ارتفاع به طور خودکار متناسب با عرض تنظیم می‌شود */
-    margin: 10px; /* فاصله بین تصاویر */
-    border-radius: 8px; /* گرد کردن گوشه‌های تصاویر */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه برای تصاویر */
+/* استایل‌دهی به لینک‌های پایین صفحه */
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* استایل‌دهی به سبد خرید */
+#cart-items {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#total-price {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#total-price button {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#total-price button:hover {
+    background-color: darkred;
+}
+
+/* استایل‌دهی به مدال برای بزرگنمایی تصاویر */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%; /* عرض 80% از صفحه */
+    max-width: 600px; /* حداکثر عرض 600px */
+    height: auto; /* ارتفاع متناسب با عرض */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
