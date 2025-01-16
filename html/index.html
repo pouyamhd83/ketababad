@@ -33,11 +33,13 @@
         <section>
             <h2>کتاب‌های داستانی</h2>
             <div class="book-gallery">
-                <div class="book-item" onclick="toggleImage('home');">
+                <div class="book-item">
                     <img src="images/home.jpg" alt="کتاب داستان 1" id="image-home">
+                    <span class="arrow" onclick="toggleImage('home');">&#8594;</span>
                 </div>
-                <div class="book-item" onclick="toggleImage('never');">
+                <div class="book-item">
                     <img src="images/never.jpg" alt="کتاب داستان 2" id="image-never">
+                    <span class="arrow" onclick="toggleImage('never');">&#8594;</span>
                 </div>
             </div>
         </section>
@@ -90,8 +92,8 @@
         // جاوااسکریپت برای تغییر تصاویر در کلیک
         function toggleImage(id) {
             var baseImage = document.getElementById('image-' + id);
-            var newImage = baseImage.src.includes(id + '.jpg') ? 'images/' + id + '2.jpg' : 'images/' + id + '.jpg';
-            baseImage.src = newImage;
+            var newImageSrc = baseImage.src.includes(id + '.jpg') ? 'images/' + id + '2.jpg' : 'images/' + id + '.jpg';
+            baseImage.src = newImageSrc;
         }
 
         // مدیریت بزرگنمایی تصاویر
