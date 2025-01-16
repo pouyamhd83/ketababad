@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کتاب آباد - کتابفروشی آنلاین</title>
     <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- لینک به فایل CSS برای تنظیم استایل -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -18,7 +18,6 @@
                 <li><a href="cart.html">سبد خرید</a></li>
             </ul>
         </nav>
-        <!-- افزودن قسمت جستجو -->
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="جستجو کتاب...">
             <button onclick="searchBooks()">جستجو</button>
@@ -34,18 +33,15 @@
         <section>
             <h2>کتاب‌های داستانی</h2>
             <div class="book-gallery">
-                <div class="book-item">
-                    <img src="images/home.jpg" alt="کتاب داستان 1" class="base">
-                    <img src="images/home2.jpg" alt="کتاب داستان 1 - جلد دوم" class="overlay">
+                <div class="book-item" onclick="toggleImage('home');">
+                    <img src="images/home.jpg" alt="کتاب داستان 1" id="image-home">
                 </div>
-                <div class="book-item">
-                    <img src="images/never.jpg" alt="کتاب داستان 2" class="base">
-                    <img src="images/never2.jpg" alt="کتاب داستان 2 - جلد دوم" class="overlay">
+                <div class="book-item" onclick="toggleImage('never');">
+                    <img src="images/never.jpg" alt="کتاب داستان 2" id="image-never">
                 </div>
             </div>
         </section>
 
-        <!-- بخش برای نمایش تاریخ -->
         <section id="date-section">
             <h2>تاریخ امروز</h2>
             <p id="current-date"></p>
@@ -61,7 +57,6 @@
         <p>تابع قوانین جمهوری اسلامی ایران</p>
     </footer>
 
-    <!-- مدال برای بزرگنمایی تصاویر -->
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
@@ -69,7 +64,7 @@
 
     <script src="scripts.js"></script>
     <script>
-        // جاوااسکریپت برای نمایش تاریخ
+        // برای نمایش تاریخ
         function displayDate() {
             var now = new Date();
             var options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
@@ -78,31 +73,7 @@
         }
         displayDate();
 
-        // جاوااسکریپت برای مدیریت بزرگنمایی تصاویر
-        var modal = document.getElementById("myModal");
-        var modalImg = document.getElementById("img01");
-        var images = document.querySelectorAll(".book-gallery img");
-        var closeBtn = document.getElementsByClassName("close")[0];
-
-        images.forEach(function(img) {
-            img.onclick = function(){
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                modalImg.style.maxHeight = "80%"; // حداکثر ارتفاع
-            }
-        });
-
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // جاوااسکریپت برای جستجوی کتاب
+        // برای جستجوی کتاب
         function searchBooks() {
             var input = document.getElementById('searchInput').value.toLowerCase();
             var books = document.querySelectorAll('.book-item');
@@ -116,22 +87,34 @@
             });
         }
 
-        // جاوااسکریپت برای تغییر تصاویر
-        var galleryItems = document.querySelectorAll(".book-item");
-        galleryItems.forEach(function(item) {
-            var baseImage = item.querySelector(".base");
-            var overlayImage = item.querySelector(".overlay");
+        // جاوااسکریپت برای تغییر تصاویر در کلیک
+        function toggleImage(id) {
+            var baseImage = document.getElementById('image-' + id);
+            var newImage = baseImage.src.includes(id + '.jpg') ? 'images/' + id + '2.jpg' : 'images/' + id + '.jpg';
+            baseImage.src = newImage;
+        }
 
-            item.onmouseover = function() {
-                overlayImage.style.opacity = 1;
-                overlayImage.style.display = "block";
+        // مدیریت بزرگنمایی تصاویر
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
+        }
 
-            item.onmouseout = function() {
-                overlayImage.style.opacity = 0;
-                overlayImage.style.display = "none";
+        document.querySelectorAll(".book-gallery img").forEach(function(img) {
+            img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                modalImg.style.maxHeight = "80%"; 
             }
         });
+
+        document.getElementsByClassName("close")[0].onclick = function() {
+            modal.style.display = "none";
+        }
     </script>
 </body>
 </html>
