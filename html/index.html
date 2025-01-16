@@ -65,7 +65,6 @@
         <div class="modal-arrow-right" onclick="switchImage('right')">&#8594;</div>
     </div>
 
-    <script src="scripts.js"></script>
     <script>
         // برای نمایش تاریخ
         function displayDate() {
@@ -90,6 +89,7 @@
             });
         }
 
+        // مدیریت عکس‌ها
         var images = {
             'home': ['images/home.jpg', 'images/home2.jpg'],
             'never': ['images/never.jpg', 'images/never2.jpg']
@@ -107,6 +107,7 @@
         function closeModal() {
             modal.style.display = "none";
         }
+
         function switchImage(direction) {
             if (direction === 'left') {
                 currentImageIndex = (currentImageIndex === 0) ? currentImageSet.length - 1 : currentImageIndex - 1;
