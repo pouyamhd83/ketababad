@@ -29,40 +29,20 @@
         <section>
             <h2>صفحه اصلی</h2>
         </section>
-        
+
+        <!-- بخش جدید: کتاب‌های داستانی -->
         <section>
-            <h2>کتاب‌های دانشگاهی</h2>
+            <h2>کتاب‌های داستانی</h2>
             <div class="book-gallery">
                 <div class="book-item">
-                    <img src="images/farsi.jpg" alt="کتاب فارسی">
-                    <p>نام کتاب: زبان و ادبیات فارسی<br>نویسنده: قربانعلی ابراهیمی، احمدرضا یلمه‌ها<br>قیمت: 1،500،000 ریال</p>
+                    <img src="images/home.jpg" alt="کتاب داستان 1" class="base">
+                    <img src="images/home2.jpg" alt="کتاب داستان 1 - جلد دوم" class="overlay">
                 </div>
                 <div class="book-item">
-                    <img src="images/fizik_holiday.jpg" alt="کتاب فیزیک هالیدی">
-                    <p>نام کتاب: حل المسائل مبانی فیزیک (فیزیک هالیدی)<br>نویسنده: دیوید هالیدی، رابرت رزنیک، جرل واکر<br>قیمت: 2،000،000 ریال</p>
-                </div>
-                <div class="book-item">
-                    <img src="images/fizik.jpg" alt="کتاب فیزیک">
-                    <p>نام کتاب: مبانی فیزیک و گرما<br>نویسنده: سعید بهنام فر<br>قیمت: 2،300،000 ریال</p>
-                </div>
-                <div class="book-item">
-                    <img src="images/riazi_pish.jpg" alt="کتاب ریاضی پیش دانشگاهی">
-                    <p>نام کتاب: ریاضیات پیش دانشگاهی<br>نویسنده: علی قمی، ژینوس نظری، معصومه ولی<br>قیمت: 1،500،000 ریال</p>
-                </div>
-                <div class="book-item">
-                    <img src="images/riazi_yek.jpg" alt="کتاب ریاضی یک">
-                    <p>نام کتاب: ریاضی عمومی یک<br>نویسنده: نفیسه صالحی، محمد نیلی، محمدرسول ولایتی<br>قیمت: 1،600،000 ریال</p>
-                </div>
-                <div class="book-item">
-                    <img src="images/tarikh_tahlili.jpg" alt="کتاب تاریخ تحلیلی">
-                    <p>نام کتاب: تاریخ تحلیلی صدر اسلام<br>نویسنده: دکتر محمد نصیری<br>قیمت: 900،000 ریال</p>
+                    <img src="images/never.jpg" alt="کتاب داستان 2" class="base">
+                    <img src="images/never2.jpg" alt="کتاب داستان 2 - جلد دوم" class="overlay">
                 </div>
             </div>
-        </section>
-        
-        <section>
-            <h2>داستان‌های فانتزی</h2>
-            <p>به زودی...</p>
         </section>
 
         <!-- بخش برای نمایش تاریخ -->
@@ -71,7 +51,7 @@
             <p id="current-date"></p>
         </section>
     </main>
-    
+
     <footer>
         <div class="footer-links">
             <a href="support.html">پشتیبانی</a>
@@ -135,6 +115,23 @@
                 }
             });
         }
+
+        // جاوااسکریپت برای تغییر تصاویر
+        var galleryItems = document.querySelectorAll(".book-item");
+        galleryItems.forEach(function(item) {
+            var baseImage = item.querySelector(".base");
+            var overlayImage = item.querySelector(".overlay");
+
+            item.onmouseover = function() {
+                overlayImage.style.opacity = 1;
+                overlayImage.style.display = "block";
+            }
+
+            item.onmouseout = function() {
+                overlayImage.style.opacity = 0;
+                overlayImage.style.display = "none";
+            }
+        });
     </script>
 </body>
 </html>
