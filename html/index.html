@@ -34,12 +34,10 @@
             <h2>کتاب‌های داستانی</h2>
             <div class="book-gallery">
                 <div class="book-item">
-                    <img src="images/home.jpg" alt="کتاب داستان 1" id="image-home">
-                    <span class="arrow" onclick="toggleImage('home');">&#8594;</span>
+                    <img src="images/home.jpg" alt="کتاب داستان 1" onclick="openModal('home')" id="image-home">
                 </div>
                 <div class="book-item">
-                    <img src="images/never.jpg" alt="کتاب داستان 2" id="image-never">
-                    <span class="arrow" onclick="toggleImage('never');">&#8594;</span>
+                    <img src="images/never.jpg" alt="کتاب داستان 2" onclick="openModal('never')" id="image-never">
                 </div>
             </div>
         </section>
@@ -59,9 +57,12 @@
         <p>تابع قوانین جمهوری اسلامی ایران</p>
     </footer>
 
+    <!-- مدال برای بزرگنمایی تصاویر -->
     <div id="myModal" class="modal">
-        <span class="close">&times;</span>
+        <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
+        <div class="modal-arrow-left" onclick="switchImage('left')">&#8592;</div>
+        <div class="modal-arrow-right" onclick="switchImage('right')">&#8594;</div>
     </div>
 
     <script src="scripts.js"></script>
@@ -89,33 +90,39 @@
             });
         }
 
-        // جاوااسکریپت برای تغییر تصاویر در کلیک
-        function toggleImage(id) {
-            var baseImage = document.getElementById('image-' + id);
-            var newImageSrc = baseImage.src.includes(id + '.jpg') ? 'images/' + id + '2.jpg' : 'images/' + id + '.jpg';
-            baseImage.src = newImageSrc;
+        var images = {
+            'home': ['images/home.jpg', 'images/home2.jpg'],
+            'never': ['images/never.jpg', 'images/never2.jpg']
+        };
+        var currentImageIndex = 0;
+        var currentImageSet = [];
+
+        function openModal(imageSet) {
+            currentImageSet = images[imageSet];
+            currentImageIndex = 0;
+            modal.style.display = "block";
+            modalImg.src = currentImageSet[currentImageIndex];
         }
 
-        // مدیریت بزرگنمایی تصاویر
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        function switchImage(direction) {
+            if (direction === 'left') {
+                currentImageIndex = (currentImageIndex === 0) ? currentImageSet.length - 1 : currentImageIndex - 1;
+            } else {
+                currentImageIndex = (currentImageIndex === currentImageSet.length - 1) ? 0 : currentImageIndex + 1;
+            }
+            modalImg.src = currentImageSet[currentImageIndex];
+        }
+
         var modal = document.getElementById("myModal");
         var modalImg = document.getElementById("img01");
 
-        modal.onclick = function(event) {
+        window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                closeModal();
             }
-        }
-
-        document.querySelectorAll(".book-gallery img").forEach(function(img) {
-            img.onclick = function(){
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                modalImg.style.maxHeight = "80%"; 
-            }
-        });
-
-        document.getElementsByClassName("close")[0].onclick = function() {
-            modal.style.display = "none";
         }
     </script>
 </body>
