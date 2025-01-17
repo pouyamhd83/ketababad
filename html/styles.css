@@ -21,35 +21,35 @@ h1 {
     color: #333;
 }
 
-/* استایلدهی به ناوبری */
+/* استایل‌دهی به ناوبری */
 nav {
-    background-color: #333; /* رنگ پسزمینه منو */
+    background-color: #333; /* رنگ پس‌زمینه منو */
     padding: 10px; /* حاشیه داخلی منو */
 }
 
 nav ul {
-    list-style-type: none; /* حذف نشانهگذاری لیست */
+    list-style-type: none; /* حذف نشانه‌گذاری لیست */
     margin: 0;
     padding: 0;
     text-align: center; /* مرکز چین کردن متن */
 }
 
 nav ul li {
-    display: inline; /* نمایش لینکها به صورت افقی */
-    margin: 0 15px; /* فاصله بین لینکها */
+    display: inline; /* نمایش لینک‌ها به صورت افقی */
+    margin: 0 15px; /* فاصله بین لینک‌ها */
 }
 
 nav ul li a {
-    color: white; /* رنگ سفید برای لینکها */
-    text-decoration: none; /* حذف زیرخط لینکها */
-    font-weight: bold; /* پررنگ کردن متن لینکها */
+    color: white; /* رنگ سفید برای لینک‌ها */
+    text-decoration: none; /* حذف زیرخط لینک‌ها */
+    font-weight: bold; /* پررنگ کردن متن لینک‌ها */
 }
 
 nav ul li a:hover {
     text-decoration: underline; /* افزودن زیرخط در حالت هاور */
 }
 
-/* استایلدهی به بخش جستجو */
+/* استایل‌دهی به بخش جستجو */
 .search-bar {
     text-align: center;
     margin: 20px 0;
@@ -75,27 +75,28 @@ nav ul li a:hover {
     background-color: #555;
 }
 
-/* استایلدهی به بخش کتابها */
+/* استایل‌دهی به بخش کتاب‌ها */
 .book-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
 }
 
 .book-item {
-    margin: 20px;
-    text-align: center;
-    position: relative; /* برای قرار دادن عناصر دیگر روی عکس */
-    width: 250px; /* تنظیم عرض */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .book-item img {
-    width: 100%; /* تنظیم عرض */
-    height: auto; /* ارتفاع به طور خودکار متناسب با عرض تنظیم میشود */
-    margin: 10px; /* فاصله بین تصاویر */
-    border-radius: 8px; /* گرد کردن گوشههای تصاویر */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه برای تصاویر */
-    cursor: pointer; /* نشان دادن اینکه تصویر قابل کلیک است */
+    width: 100%; 
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .book-info {
@@ -103,84 +104,50 @@ nav ul li a:hover {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    text-align: left;
+    margin-top: 10px;
 }
 
 .book-info h3 {
     margin-top: 0;
 }
 
-.add-to-cart {
-    background-color: #f00; /* قرمز */
+.action-buttons {
+    display: flex; /* نمایش دکمه‌ها به صورت افقی */
+    align-items: center; /* همتراز کردن دکمه‌ها به مرکز  */
+    justify-content: space-between; /* فاصله بین دکمه‌ها */
+    margin-bottom: 10px;
+}
+
+.action-buttons button {
+    padding: 10px 15px;
+    background-color: #f00; 
     color: white;
-    padding: 10px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%); /* برای مرکزیت */
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    display: inline-block;
+    margin: 0 5px;
 }
 
-.add-to-cart span {
-    font-size: 1.5em;
-    line-height: 1;
-    display: block; /* برای مرکز چین کردن */
-}
-
-.cart-item-count {
-    display: none; /* ابتدا مخفی است */
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #f00;
-    color: white;
-    padding: 8px;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.cart-item-count span {
-    font-size: 1em;
-    line-height: 1;
-    display: inline-block;
-    padding: 0 5px;
-    cursor: pointer;
-}
-
-.remove-icon {
-    font-size: 1.2em;
-    line-height: 1;
-    color: white;
-}
-
-.add-icon {
-    font-size: 1.2em;
-    line-height: 1;
-    color: white;
+.action-buttons button:hover {
+    background-color: darkred;
 }
 
 .item-availability {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: white;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #666;
 }
 
-/* استایلدهی به بخش "درباره ما" */
+/* استایل‌دهی به بخش "درباره ما" */
 #about {
     padding: 2rem;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 2rem 0;
+    text-align: left;
 }
 
 #about h2 {
@@ -193,10 +160,9 @@ nav ul li a:hover {
     font-size: 1.2rem;
     line-height: 1.8;
     color: #666;
-    text-align: justify;
 }
 
-/* استایلدهی به لینکهای پایین صفحه */
+/* استایل‌دهی به لینک‌های پایین صفحه */
 .footer-links {
     margin-bottom: 10px;
 }
@@ -211,11 +177,12 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* استایلدهی به سبد خرید */
+/* استایل‌دهی به سبد خرید */
 #cart-items {
     text-align: center;
     margin: 20px 0;
 }
+
 #total-price {
     text-align: center;
     margin: 20px 0;
@@ -234,9 +201,9 @@ nav ul li a:hover {
     background-color: darkred;
 }
 
-/* استایلدهی به مدال برای بزرگنمایی تصاویر */
+/* استایل‌دهی به مدال برای بزرگنمایی تصاویر */
 .modal {
-    display: none; /* ابتدا مخفی است */
+    display: none;
     position: fixed;
     z-index: 1;
     padding-top: 60px;
@@ -264,7 +231,6 @@ nav ul li a:hover {
     font-weight: bold;
     transition: 0.3s;
 }
-
 .close:hover,
 .close:focus {
     color: #bbb;
@@ -272,8 +238,7 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-.modal-arrow-left,
-.modal-arrow-right {
+.modal-arrow-left, .modal-arrow-right {
     position: absolute;
     top: 50%;
     color: white;
