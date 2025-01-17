@@ -76,23 +76,18 @@ nav ul li a:hover {
 }
 
 /* استایل‌دهی به بخش کتاب‌ها */
-.book-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
 .book-item {
     background-color: #fff;
     border-radius: 10px;
     padding: 10px;
+    margin: 20px;
     width: 250px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
 .book-item img {
-    width: 100%; 
+    width: 100%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -231,13 +226,13 @@ nav ul li a:hover {
     font-weight: bold;
     transition: 0.3s;
 }
+
 .close:hover,
 .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
 }
-
 .modal-arrow-left, .modal-arrow-right {
     position: absolute;
     top: 50%;

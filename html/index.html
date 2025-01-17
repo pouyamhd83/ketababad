@@ -15,7 +15,7 @@
                 <li><a href="index.html">صفحه اصلی 🏠</a></li>
                 <li><a href="about.html">درباره ما</a></li>
                 <li><a href="contact.html">تماس با ما</a></li>
-                <li><a href="cart.html">سبد خرید</a></li>
+                <li><a href="cart.html">سبد خرید 🛒</a></li>
             </ul>
         </nav>
         <div class="search-bar">
@@ -29,37 +29,44 @@
             <h2>صفحه اصلی</h2>
         </section>
 
-        <!-- بخش جدید: کتاب‌های داستانی -->
+        <!-- کتاب اول -->
         <section>
-            <h2>کتاب‌های داستانی</h2>
-            <div class="book-gallery">
-                <div class="book-item">
-                    <img src="images/home.jpg" alt="کتاب داستان 1" onclick="openModal('home')" id="image-home">
-                    <div class="book-info">
-                        <p>نام کتاب: خانه همیشه خانه است</p>
-                        <p>نویسنده: تونی موریسون</p>
-                        <p>مترجم: هاجر شکری</p>
-                        <p>قیمت: 70,000 تومان</p>
-                        <div class="action-buttons">
-                            <button onclick="addToCart('home')" class="add-button">+</button>
-                        </div>
-                        <p class="inventory">موجودی= 1 عدد</p>
+            <div class="book-item">
+                <img src="images/home.jpg" alt="کتاب داستان 1" onclick="openModal('home')" id="image-home">
+                <div class="book-info">
+                    <p>نام کتاب: خانه همیشه خانه است</p>
+                    <p>نویسنده: تونی موریسون</p>
+                    <p>مترجم: هاجر شکری</p>
+                    <p>قیمت: 70,000 تومان</p>
+                    <div class="action-buttons">
+                        <button onclick="addToCart('home')">+</button>
                     </div>
-                </div>
-                <div class="book-item">
-                    <img src="images/never.jpg" alt="کتاب داستان 2" onclick="openModal('never')" id="image-never">
-                    <div class="book-info">
-                        <p>نام کتاب: هیچ وقت دروغ نگو</p>
-                        <p>نویسنده: فریدا مک فادن</p>
-                        <p>مترجم: محمد ساکی</p>
-                        <p>قیمت: 170,000 تومان</p>
-                        <div class="action-buttons">
-                            <button onclick="addToCart('never')" class="add-button">+</button>
-                        </div>
-                        <p class="inventory">موجودی= 1 عدد</p>
-                    </div>
+                    <p class="inventory">موجودی= 1 عدد</p>
                 </div>
             </div>
+        </section>
+
+        <!-- کتاب دوم -->
+        <section>
+            <div class="book-item">
+                <img src="images/never.jpg" alt="کتاب داستان 2" onclick="openModal('never')" id="image-never">
+                <div class="book-info">
+                    <p>نام کتاب: هیچ وقت دروغ نگو</p>
+                    <p>نویسنده: فریدا مک فادن</p>
+                    <p>مترجم: محمد ساکی</p>
+                    <p>قیمت: 170,000 تومان</p>
+                    <div class="action-buttons">
+                        <button onclick="addToCart('never')">+</button>
+                    </div>
+                    <p class="inventory">موجودی= 1 عدد</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- کتاب‌های زبان انگلیسی -->
+        <section>
+            <h2>کتاب‌های زبان انگلیسی</h2>
+            <p>به زودی...</p>
         </section>
 
         <section id="date-section">
@@ -71,7 +78,7 @@
     <footer>
         <div class="footer-links">
             <a href="support.html">پشتیبانی</a>
-            <a href="cart.html">سبد خرید</a>
+            <a href="cart.html">سبد خرید 🛒</a>
         </div>
         <p>کلیه حقوق محفوظ است &copy; 2024 کتاب آباد</p>
         <p>تابع قوانین جمهوری اسلامی ایران</p>
@@ -106,12 +113,10 @@
                 }
             });
         }
-
         // مدیریت مدال تصاویر
-        function openModal(imageSet) {
-            var imageSrc = images/${imageSet}.jpg;
+        function openModal(imageId) {
+            modalImg.src = document.getElementById(imageId).src;
             modal.style.display = "block";
-            modalImg.src = imageSrc;
         }
 
         function closeModal() {
@@ -131,10 +136,20 @@
         function addToCart(bookId) {
             var bookInfo = document.querySelector(#image-${bookId}).nextElementSibling;
             var actionButtons = bookInfo.querySelector('.action-buttons');
-            actionButtons.innerHTML = <button onclick="increaseQty('${bookId}')" class="add-button">+</button>
-async (params) => {
-                                           <button onclick="decreaseQty('${bookId}')" class="delete-button">🗑️</button>;
-}
+            
+            // ایجاد و جایگذاری دکمه‌های افزایش و کاهش تعداد
+            var increaseButton = document.createElement('button');
+            increaseButton.innerHTML = '+';
+            increaseButton.onclick = function() { increaseQty(bookId) };
+
+            var decreaseButton = document.createElement('button');
+            decreaseButton.innerHTML = '🗑️';
+            decreaseButton.onclick = function() { decreaseQty(bookId) };
+
+            actionButtons.innerHTML = '';
+            actionButtons.appendChild(increaseButton);
+            actionButtons.appendChild(decreaseButton);
+
             var inventory = bookInfo.querySelector('.inventory');
             inventory.textContent = 'موجودی= 1 عدد';
         }
@@ -142,7 +157,7 @@ async (params) => {
         // افزایش تعداد
         function increaseQty(bookId) {
             var inventory = document.querySelector(#image-${bookId}).nextElementSibling.querySelector('.inventory');
-            var qty = parseInt(inventory.textContent.match(/\d+/)[0]);
+            var qty = parseIntinventory.textContent.match//\d+/)[0]);
             inventory.textContent = موجودی= ${qty + 1} عدد;
         }
 
