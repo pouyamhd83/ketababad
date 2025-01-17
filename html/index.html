@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کتاب آباد - کتابفروشی آنلاین</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+    <link href="" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,12 +23,10 @@
             <button onclick="searchBooks()">جستجو</button>
         </div>
     </header>
-
     <main>
         <section>
             <h2>صفحه اصلی</h2>
         </section>
-
         <!-- کتاب اول -->
         <section>
             <div class="book-item">
@@ -45,7 +43,6 @@
                 </div>
             </div>
         </section>
-
         <!-- کتاب دوم -->
         <section>
             <div class="book-item">
@@ -62,19 +59,16 @@
                 </div>
             </div>
         </section>
-
-        <!-- کتاب‌های زبان انگلیسی -->
+        <!-- کتابهای زبان انگلیسی -->
         <section>
-            <h2>کتاب‌های زبان انگلیسی</h2>
+            <h2>کتابهای زبان انگلیسی</h2>
             <p>به زودی...</p>
         </section>
-
         <section id="date-section">
             <h2>تاریخ امروز</h2>
             <p id="current-date"></p>
         </section>
     </main>
-
     <footer>
         <div class="footer-links">
             <a href="support.html">پشتیبانی</a>
@@ -83,13 +77,11 @@
         <p>کلیه حقوق محفوظ است &copy; 2024 کتاب آباد</p>
         <p>تابع قوانین جمهوری اسلامی ایران</p>
     </footer>
-
     <!-- مدال برای بزرگنمایی تصاویر -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
     </div>
-
     <script>
         // برای نمایش تاریخ
         function displayDate() {
@@ -99,7 +91,6 @@
             document.getElementById('current-date').textContent = currentDate;
         }
         displayDate();
-
         // برای جستجوی کتاب
         function searchBooks() {
             var input = document.getElementById('searchInput').value.toLowerCase();
@@ -118,47 +109,51 @@
             modalImg.src = document.getElementById(imageId).src;
             modal.style.display = "block";
         }
-
         function closeModal() {
             modal.style.display = "none";
         }
-
         var modal = document.getElementById("myModal");
         var modalImg = document.getElementById("img01");
-
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeModal();
             }
         }
+        // سبد خرید
+        var cart = {}; 
 
         // افزودن به سبد خرید
         function addToCart(bookId) {
             var bookInfo = document.querySelector(#image-${bookId}).nextElementSibling;
             var actionButtons = bookInfo.querySelector('.action-buttons');
-            
-            // ایجاد و جایگذاری دکمه‌های افزایش و کاهش تعداد
+            // ایجاد و جایگذاری دکمههای افزایش و کاهش تعداد
             var increaseButton = document.createElement('button');
             increaseButton.innerHTML = '+';
             increaseButton.onclick = function() { increaseQty(bookId) };
-
             var decreaseButton = document.createElement('button');
             decreaseButton.innerHTML = '🗑️';
             decreaseButton.onclick = function() { decreaseQty(bookId) };
-
             actionButtons.innerHTML = '';
             actionButtons.appendChild(increaseButton);
             actionButtons.appendChild(decreaseButton);
 
+            // اضافه کردن کتاب به سبد خرید
+            if (bookId in cart) {
+                cart[bookId]++; 
+            } else {
+                cart[bookId] = 1;
+            }
+
             var inventory = bookInfo.querySelector('.inventory');
-            inventory.textContent = 'موجودی= 1 عدد';
+            inventory.textContent = 'موجودی= 1 عدد'; // یا هر تعداد موجودی کتاب 
         }
 
         // افزایش تعداد
         function increaseQty(bookId) {
             var inventory = document.querySelector(#image-${bookId}).nextElementSibling.querySelector('.inventory');
-            var qty = parseIntinventory.textContent.match//\d+/)[0]);
-            inventory.textContent = موجودی= ${qty + 1} عدد;
+            var qty = parseInt(inventory.textContent.match(/\d+/)[0]);
+            inventory.textContent = موجودی= ${qty + 1} عدد; //  یا هر تعداد موجودی کتاب 
+            cart[bookId]++; //  تعداد کتاب در سبد خرید افزایش می یابد 
         }
 
         // کاهش تعداد
@@ -166,7 +161,8 @@
             var inventory = document.querySelector(#image-${bookId}).nextElementSibling.querySelector('.inventory');
             var qty = parseInt(inventory.textContent.match(/\d+/)[0]);
             if (qty > 0) {
-                inventory.textContent = موجودی= ${qty - 1} عدد;
+                inventory.textContent = موجودی= ${qty - 1} عدد; // یا هر تعداد موجودی کتاب 
+                cart[bookId]--;  //  تعداد کتاب در سبد خرید کاهش می یابد 
             }
         }
     </script>
