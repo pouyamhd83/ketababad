@@ -92,8 +92,8 @@
 
         // مدیریت عکس‌ها
         var images = {
-            'home': ['images/home.jpg', 'images/home2.jpg'],
-            'never': ['images/never.jpg', 'images/never2.jpg']
+            'home': ['images/home.jpg'],
+            'never': ['images/never.jpg']
         };
         var currentImageIndex = 0;
         var currentImageSet = [];
@@ -125,6 +125,52 @@
                 closeModal();
             }
         }
+        // سبد خرید
+        var cart = {}; 
+
+        // افزودن به سبد خرید
+        function addToCart(bookId) {
+            var bookInfo = document.querySelectoimage-$bookId.nextElementSibling;
+            var actionButtons = bookInfo.querySelector('.action-buttons');
+            // ایجاد و جایگذاری دکمههای افزایش و کاهش تعداد
+            var increaseButton = document.createElement('button');
+            increaseButton.innerHTML = '+';
+            increaseButton.onclick = function() { increaseQty(bookId) };
+            var decreaseButton = document.createElement('button');
+            decreaseButton.innerHTML = '🗑️';
+            decreaseButton.onclick = function() { decreaseQty(bookId) };
+            actionButtons.innerHTML = '';
+            actionButtons.appendChild(increaseButton);
+            actionButtons.appendChild(decreaseButton);
+
+            // اضافه کردن کتاب به سبد خرید
+            if (bookId in cart) {
+                cart[bookId]++; 
+            } else {
+                cart[bookId] = 1;
+            }
+
+            var inventory = bookInfo.querySelector('.inventory');
+            inventory.textContent = 'موجودی= 1 عدد'; // یا هر تعداد موجودی کتاب 
+        }
+
+        // افزایش تعداد
+        function increaseQty(bookId) {
+            var inventory = document.querySelectorimage-$bookId.nextElementSibling.querySelector('.inventory');
+            var qty = parseIntinventory.textContent.match//\d+/)[0]);
+            inventory.textContent = موجودی= $qty + 1} عدد; //  یا هر تعداد موجودی کتاب 
+            cart[bookId]++; //  تعداد کتاب در سبد خرید افزایش می یابد 
+        
+
+        // کاهش تعداد
+        function decreaseQty(bookId) {
+            var inventory = document.querySelectorimage-$bookId.nextElementSibling.querySelector('.inventory');
+            var qty = parseIntinventory.textContent.match//\d+/)[0]);
+            if (qty > 0) {
+                inventory.textContent = موجودی= $qty - 1} عدد; // یا هر تعداد موجودی کتاب 
+                cart[bookId]--;  //  تعداد کتاب در سبد خرید کاهش می یابد 
+            }
+        
     </script>
 </body>
 </html>
