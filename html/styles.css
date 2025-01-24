@@ -108,7 +108,7 @@ nav ul li a:hover {
 
 .action-buttons {
     display: flex; /* نمایش دکمه‌ها به صورت افقی */
-    align-items: center; /* همتراز کردن دکمه‌ها به مرکز  */
+    align-items: center; /* همتراز کردن دکمه‌ها به مرکز */
     justify-content: space-between; /* فاصله بین دکمه‌ها */
     margin-bottom: 10px;
 }
